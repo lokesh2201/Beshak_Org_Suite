@@ -1,0 +1,27 @@
+{
+  "name": "beshak-qa",
+  "version": "1.0.0",
+  "description": "Playwright + JavaScript Page Object Model automation for beshak.org test cases",
+  "private": true,
+  "scripts": {
+    "test": "playwright test",
+    "test:smoke": "playwright test --grep @smoke",
+    "test:no-bugs": "playwright test --grep-invert @Bugs",
+    "test:bugs": "playwright test --grep @Bugs",
+    "test:health": "playwright test tests/health-plans.spec.js",
+    "test:term": "playwright test tests/term-plans.spec.js",
+    "test:compare": "playwright test tests/comparison.spec.js",
+    "test:proposal": "playwright test tests/health-proposal-form.spec.js",
+    "test:Article": "playwright test tests/articles.spec.js",
+    "test:Video": "playwright test tests/videos.spec.js",
+    "test:headed": "playwright test --headed --workers=1",
+    "test:list": "playwright test --list",
+    "report": "playwright show-report"
+  },
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.56.1",
+    "dotenv": "^18.0.9"
+  }
+}
