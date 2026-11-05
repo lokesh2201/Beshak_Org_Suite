@@ -71,14 +71,3 @@ tests/
   Keep `playwright-report/` and `test-results/` private.
 - Upload fixtures (an `.exe`-named text stub, `.txt`, two `image.jpg`, a 4.9 MB PDF) are generated per test in `test-results/`.
 
-## Notes on how checks are made
-
-- **Price badge**: desktop cards hide the Economical/Fair/Expensive text (it is in the DOM for mobile); tests read it from there.
-- **Insurer filter (HP07/TP07)**: expected plans come from the unfiltered list by name prefix (`src/data/*.data.js`),
-  so the check does not rely on the filter under test.
-- **Articles (A04/A05/A06)**: the expected results come from the full library in the public CMS GraphQL (`CmsApi`).
-- **Videos**: the YouTube embed page is stubbed so videos don't autoplay in the test browser. The tests check that the
-  player loads the card's video ID with autoplay, and that the video exists on YouTube (oEmbed).
-  Titles renamed on YouTube are recorded as report annotations, not failures.
-- **Plan features (HP08/TP08)**: detail pages describe features in different words, so missing exact phrases are
-  recorded as annotations.
